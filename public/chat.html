@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Chat Room</title>
+  </head>
+  <body>
+    <div class="chat-container">
+      <header class="chat-header">
+        <h1><i class="fas fa-smile"></i> ChatCord</h1>
+        <a href="index.html" class="btn leave-btn">Leave Room</a>
+      </header>
+      <main class="chat-main">
+        <div class="chat-sidebar">
+          <h3><i class="fas fa-comments"></i> Room Name:</h3>
+          <h2 id="room-name"></h2>
+          <h3><i class="fas fa-users"></i> Users</h3>
+          <ul id="users"></ul>
+        </div>
+        <div class="chat-messages">
+          <!-- <div class="message right">
+            <span class="time">1</span>
+            <p class="meta">Brad</p>
+            <p class="text">
+              Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Eligendi, repudiandae. Lorem ipsum dolor sit
+              amet consectetur adipisicing elit. Eligendi, repudiandae.Lorem
+              ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              repudiandae.Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Eligendi, repudiandae.Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Eligendi, repudiandae.Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Eligendi, repudiandae.
+            </p>
+          </div>
+          <div class="message right">
+            <span class="time">2</span>
+            <p class="meta">Mary</p>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              repudiandae.
+            </p>
+          </div>
+          <div class="message left">
+            <span class="time">3</span>
+            <p class="meta">Mary</p>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              repudiandae.
+            </p>
+          </div>
+          <div class="message left">
+            <span class="time">4</span>
+            <p class="meta">Mary</p>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+              repudiandae.
+            </p>
+          </div> -->
+        </div>
+      </main>
+      <div class="chat-form-container">
+        <form id="chat-form">
+          <input
+            id="msg"
+            type="text"
+            placeholder="Enter Message"
+            required
+            autocomplete="off"
+          />
+          <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+        </form>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"
+      integrity="sha512-Dz4zO7p6MrF+VcOD6PUbA08hK1rv0hDv/wGuxSUjImaUYxRyK2gLC6eQWVqyDN9IM1X/kUA8zkykJS/gEVOd3w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

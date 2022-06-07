@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Room</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 100vh;
+        background-color: rgb(86, 38, 135);
+      }
+      h1 {
+        color: #fff;
+      }
+      .btn {
+        cursor: pointer;
+        text-align: center;
+        width: 110px;
+        height: 40px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        font-size: 18px;
+        font-weight: bold;
+        margin:10px
+      }
+      .containeer {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .innercontainer {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 40%;
+        width:60%
+      }
+      .link {
+        width: 60%;
+        height: 40%;
+      }
+      .form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+text-align: center;
+}
+.form-control{
+  width: 200px;
+  height: 40px;
+  margin: 10px;
+}
+.room{
+  text-align: center;
+  color: black;
+}
+input{
+  width: 95%;
+  height: 95%;
+padding: 5px;
+font-size: 15px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="containeer">
+      <div class="innercontainer">
+        <h1>Join The created room</h1>
+        <form class="form">
+          <div class="form-control">
+
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter username..."
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-control">
+
+            <input class="room" name="room" id="room" disabled/>
+          </div>
+          <button class="btn">Join Room</button>
+        </form>
+
+        </form>
+      </div>
+    </div>
+    <script src="js/random.js"></script>
+  </body>
+</html>

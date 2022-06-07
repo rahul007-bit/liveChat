@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Chat Room</title>
+  </head>
+  <body>
+    <div class="join-container">
+      <div class="center">
+        <h1 class="error hide" id="error">hmmm</h1>
+      </div>
+      <header class="join-header">
+        <h1>Chat Room</h1>
+      </header>
+      <main class="join-main">
+        <form id="form">
+          <div class="form-control">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter username..."
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-control">
+            <label for="room">Room</label>
+            <input
+              type="text"
+              name="room"
+              placeholder="Enter Room name..."
+              required
+              autocomplete="off"
+              id="room"
+            />
+          </div>
+          <button type="submit" class="btn">Join!</button>
+        </form>
+        <div class="center">
+          <a class="create" href="/createroom">Create a new room</a>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script>
+    const error = document.getElementById("error");
+    error.style.visibility = "hidden";
+    document.getElementById("form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      error.style.innerHTML = "";
+      const username = event.target.elements.username.value;
+      const room = event.target.elements.room.value;
+      const data = JSON.stringify({
+        username: username,
+        room: room,
+      });
+      console.log(username, room, data);
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: data,
+        redirect: "follow",
+      };
+      fetch(window.location.origin + "/joinuser", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.success) {
+            window.location.replace(
+              window.location.origin +
+                "/chat.html?username=" +
+                username +
+                "&room=" +
+                room
+            );
+          } else {
+            error.style.visibility = "visible";
+            error.innerHTML = result.message;
+          }
+        })
+        .catch((error) => console.log("error", error));
+    });
+  </script>
+</html>
